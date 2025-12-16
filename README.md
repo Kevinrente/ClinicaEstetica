@@ -1,59 +1,160 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+🌸 Mimate Estética - Sistema de Gestión Clínica (ERP)
+Sistema integral para la gestión de centros estéticos y clínicas dermatológicas. Desarrollado con Laravel, incluye gestión de agenda, historial clínico, consentimientos digitales, control financiero e integración con Inteligencia Artificial (Llama 3 vía Groq) para la redacción automática de informes médicos.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+🚀 Características Principales
+📅 Agenda Inteligente:
 
-## About Laravel
+Reserva de citas interna (Admin) y pública (Landing Page para clientes).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Detección automática de conflictos de horario.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+🩺 Gestión Clínica Avanzada:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Expediente digital del paciente.
 
-## Learning Laravel
+Asistente IA: Redacción automática de notas de evolución usando Llama 3.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Carga de fotografías (Antes/Después).
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+✍️ Legal & Consentimientos:
 
-## Laravel Sponsors
+Firma digital manuscrita (Signature Pad).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Generación de contratos dinámicos según el servicio (Láser, Invasivos, Faciales).
 
-### Premium Partners
+💰 Finanzas & Dashboard:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Control de caja diario.
 
-## Contributing
+Reportes de ingresos y métricas de rendimiento.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Calculadora de comisiones para empleados.
 
-## Code of Conduct
+🎂 CRM:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Detector automático de cumpleaños (7 días próximos).
 
-## Security Vulnerabilities
+📦 Inventario: Control de stock de insumos.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+🛠️ Requisitos del Sistema
+Para ejecutar este proyecto en otra máquina necesitas:
 
-## License
+PHP >= 8.2
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Composer (Gestor de dependencias PHP)
+
+Node.js & NPM (Para el frontend)
+
+PostgreSQL (Base de datos recomendada) o MySQL/MariaDB.
+
+Git
+
+🔧 Guía de Instalación (Paso a Paso)
+Sigue estos pasos para levantar el proyecto en una computadora nueva:
+
+1. Clonar el Repositorio
+Bash
+
+git clone https://github.com/Kevinrente/ClinicaEstetica.git
+cd ClinicaEstetica
+2. Instalar Dependencias
+Instala las librerías de backend y frontend:
+
+Bash
+
+composer install
+npm install
+3. Configurar el Entorno (.env)
+Duplica el archivo de ejemplo y renómbralo:
+
+Bash
+
+cp .env.example .env
+Abre el archivo .env y configura tu base de datos:
+
+Ini, TOML
+
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=mimate_db
+DB_USERNAME=tu_usuario_postgres
+DB_PASSWORD=tu_contraseña
+4. Configurar la Inteligencia Artificial (Groq)
+Para que funcione el botón "Mejorar con IA", obtén una API Key gratis en Groq Console y añádela al final de tu .env:
+
+Ini, TOML
+
+GROQ_API_KEY=gsk_tu_clave_secreta_aqui...
+GROQ_MODEL=llama-3.3-70b-versatile
+5. Generar Clave y Migrar Base de Datos
+Bash
+
+php artisan key:generate
+php artisan migrate --seed
+> Nota: El comando --seed es crucial porque carga el usuario Administrador y el catálogo completo de servicios (Láser, Faciales, etc.).
+
+6. Compilar Assets y Ejecutar
+En una terminal:
+
+Bash
+
+npm run build
+En otra terminal (para mantener el servidor activo):
+
+Bash
+
+php artisan serve
+El sistema estará disponible en: http://127.0.0.1:8000
+
+📖 Manual de Uso Rápido
+🔐 Acceso Administrativo
+URL: /login
+
+Usuario por defecto (Seeder): admin@mimate.com (o el que hayas configurado).
+
+Contraseña: password
+
+🌍 Reservas Públicas (Clientes)
+Los clientes pueden acceder a la raíz del sitio (/) para ver la Landing Page.
+
+Hacen clic en "Agendar Cita".
+
+Seleccionan tratamiento, fecha y hora.
+
+El sistema crea el paciente automáticamente si es nuevo (basado en el teléfono).
+
+🤖 Cómo usar la IA en Consulta
+Ve al Dashboard o Agenda.
+
+Busca una cita próxima y haz clic en "Atender →".
+
+En el campo "Notas de Evolución", escribe ideas sueltas (ej: "pte vino con piel seca, se hizo hidratacion").
+
+Haz clic en el botón morado "✨ Mejorar con IA".
+
+El sistema redactará un informe médico profesional automáticamente.
+
+📂 Estructura Clave del Proyecto
+app/Services/GroqService.php: Lógica de conexión con la IA.
+
+database/seeders/ServiceSeeder.php: Catálogo de precios y textos legales.
+
+resources/views/booking: Vistas de la parte pública.
+
+resources/views/consents: Lógica de firma digital.
+
+🤝 Contribución
+Si deseas hacer cambios:
+
+Haz un fork del proyecto.
+
+Crea una rama (git checkout -b feature/nueva-funcion).
+
+Haz commit de tus cambios.
+
+Haz push a la rama.
+
+Abre un Pull Request.
+
+Desarrollado para Mimate Estética 🌸
